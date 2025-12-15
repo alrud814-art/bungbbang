@@ -29,7 +29,7 @@ body {
 }
 
 .day-title {
-  font-size: 18px;
+  font-size: 12px;
   margin: 24px 0 12px;
   padding-left: 5px; /* 왼쪽 패딩 5px */
 }
@@ -43,7 +43,7 @@ body {
 }
 
 .card-header {
-  padding: 10px 16px; /* 위, 아래 15px / 좌우 16px */
+  padding: 15px 16px; /* 위, 아래 15px / 좌우 16px */
   font-weight: 700;
   font-size: 15px;
 }
