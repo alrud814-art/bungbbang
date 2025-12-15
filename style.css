@@ -65,7 +65,8 @@ body {
 
 .card-body .btn-group {
   display: flex;
-  flex-direction: column; /* 버튼 두 줄로 */
+  flex-direction: column; /* 버튼 두 줄로 유지 */
+  flex-wrap: wrap;
   gap: 6px;
 }
 
@@ -102,6 +103,8 @@ body {
   text-decoration: none;
   display: inline-block;
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
+  width: 100%; /* 버튼 두 줄로 가득 채우기 */
+  text-align: center;
 }
 
 /* E-ticket 버튼 스타일 */
