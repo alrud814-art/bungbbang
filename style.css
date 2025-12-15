@@ -54,7 +54,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   display: flex;
-  flex-direction: column; /* 텍스트 아래 배치 */
+  flex-direction: column; /* 텍스트 아래 버튼 */
   gap: 10px;
 }
 
@@ -64,8 +64,8 @@ body {
 
 .card-body .btn-group {
   display: flex;
-  flex-direction: row; /* 버튼 한 줄로 */
-  flex-wrap: nowrap; /* 한 줄로 고정 */
+  flex-direction: row; /* 버튼 한 줄 */
+  flex-wrap: nowrap;
   gap: 8px;
 }
 
@@ -92,7 +92,7 @@ body {
   font-size: 14px;
 }
 
-/* 버튼 스타일 */
+/* 버튼 공통 스타일 */
 .btn {
   padding: 6px 12px;
   border: none;
@@ -104,9 +104,23 @@ body {
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
 }
 
-/* E-ticket 버튼 스타일 */
-.btn-checkin,
-.btn-info {
-  background-color: #ffd24d;
+/* 버튼 색상을 카드 헤더 색과 맞춤 */
+.btn-flight {
+  background-color: #ffd24d; /* 항공 */
+  color: #000;
+}
+
+.btn-train {
+  background-color: #e6f0ff; /* 이동 */
+  color: #000;
+}
+
+.btn-hotel {
+  background-color: #eaf7ea; /* 호텔 */
+  color: #000;
+}
+
+.btn-tour {
+  background-color: #e6d9ff; /* 관광 */
   color: #000;
 }
