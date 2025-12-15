@@ -43,7 +43,7 @@ body {
 }
 
 .card-header {
-  padding: 15px 16px; /* 위, 아래 15px / 좌우 16px */
+  padding: 5px 16px; /* 위, 아래 5px / 좌우 16px */
   font-weight: 700;
   font-size: 15px;
 }
