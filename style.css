@@ -56,26 +56,33 @@ body {
   line-height: 1.5;
 }
 
-/* ===== DAY Card ===== */
-.day {
-  position: relative;
-  padding-top: 22px;
+/* ===== DAY Group ===== */
+.day-wrap {
+  width: 92%;
+  max-width: 680px;
+  margin: 28px auto;
 }
 
-.day::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  border-radius: 18px 18px 0 0;
-  background: linear-gradient(90deg, #4facfe, #00f2fe);
+.day-title {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
-.day h2 {
-  font-size: 17px;
+/* ===== Item Card ===== */
+.item h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
 }
+
+.item p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.flight { border-left: 5px solid #4facfe; }
+.train  { border-left: 5px solid #00c2a8; }
+.hotel  { border-left: 5px solid #f59e0b; }
 
 /* ===== Footer ===== */
 .footer {
