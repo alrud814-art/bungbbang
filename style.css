@@ -50,12 +50,12 @@ body {
 }
 
 .card-body {
-  padding: 0 16px 20px; /* 위 0 / 좌우 16px / 아래 20px */
+  padding: 10px 16px 20px; /* 위 10px / 좌우 16px / 아래 20px */
   font-size: 15px;
   line-height: 1.5;
   display: flex;
   justify-content: space-between; /* 텍스트와 버튼 분리 */
-  align-items: center;
+  align-items: flex-start;
 }
 
 .card-body p {
@@ -65,7 +65,8 @@ body {
 
 .card-body .btn-group {
   display: flex;
-  gap: 8px;
+  flex-direction: column; /* 버튼 두 줄로 */
+  gap: 6px;
 }
 
 .card.flight .card-header {
