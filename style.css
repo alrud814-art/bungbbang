@@ -54,7 +54,7 @@ body {
   font-size: 15px;
   line-height: 1.5;
   display: flex;
-  flex-direction: column; /* 텍스트 아래 버튼 한 줄 */
+  flex-direction: column; /* 텍스트 아래 버튼 */
   gap: 10px;
 }
 
