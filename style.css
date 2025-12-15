@@ -31,6 +31,7 @@ body {
 .day-title {
   font-size: 18px;
   margin: 24px 0 12px;
+  padding-left: 16px; /* 카드 내부 텍스트와 왼쪽 여백 맞춤 */
 }
 
 .card {
