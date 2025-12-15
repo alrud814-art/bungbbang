@@ -69,20 +69,28 @@ body {
   gap: 8px;
 }
 
-.card.flight .card-header {
-  background: #ffd24d;
+.card.flight .card-header,
+.btn-flight {
+  background-color: #ffd24d; /* 항공 */
+  color: #000;
 }
 
-.card.train .card-header {
-  background: #e6f0ff;
+.card.train .card-header,
+.btn-train {
+  background-color: #e6f0ff; /* 이동 */
+  color: #000;
 }
 
-.card.hotel .card-header {
-  background: #eaf7ea;
+.card.hotel .card-header,
+.btn-hotel {
+  background-color: #eaf7ea; /* 호텔 */
+  color: #000;
 }
 
-.card.tour .card-header {
-  background: #e6d9ff; /* 관광 카드 보라색 */
+.card.tour .card-header,
+.btn-tour {
+  background-color: #e6d9ff; /* 관광 */
+  color: #000;
 }
 
 .footer {
@@ -102,25 +110,4 @@ body {
   text-decoration: none;
   display: inline-block;
   font-family: "Noto Sans", "Noto Sans KR", sans-serif;
-}
-
-/* 버튼 색상을 카드 헤더 색과 맞춤 */
-.btn-flight {
-  background-color: #ffd24d; /* 항공 */
-  color: #000;
-}
-
-.btn-train {
-  background-color: #e6f0ff; /* 이동 */
-  color: #000;
-}
-
-.btn-hotel {
-  background-color: #eaf7ea; /* 호텔 */
-  color: #000;
-}
-
-.btn-tour {
-  background-color: #e6d9ff; /* 관광 */
-  color: #000;
 }
