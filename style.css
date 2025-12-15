@@ -53,6 +53,19 @@ body {
   padding: 0 16px 20px; /* 위 0 / 좌우 16px / 아래 20px */
   font-size: 15px;
   line-height: 1.5;
+  display: flex;
+  justify-content: space-between; /* 텍스트와 버튼 분리 */
+  align-items: center;
+}
+
+.card-body p {
+  margin: 0;
+  flex: 1; /* 텍스트가 왼쪽에 차지 */
+}
+
+.card-body .btn-group {
+  display: flex;
+  gap: 8px;
 }
 
 .card.flight .card-header {
@@ -81,7 +94,6 @@ body {
 /* 버튼 스타일 */
 .btn {
   padding: 6px 12px;
-  margin-right: 8px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
