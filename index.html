@@ -1,151 +1,112 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2025.12 Taiwan Trip</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025.12 대만 여행</title>
+  <style>
+    /* 기본 스타일 */
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: "Noto Sans KR", sans-serif;
+      background-color: #fafafa;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #2a3eb1;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      margin-top: 24px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    /* 카드 스타일 */
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* 버튼 그룹 */
+    .button-group {
+      margin-top: 12px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* 버튼 스타일 */
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #2a3eb1;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #1f2c91;
+    }
+
+    /* 반응형 */
+    @media screen and (max-width: 600px) {
+      body {
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <h1>🇹🇼 2025.12 대만 여행</h1>
-    <p>12.24 – 12.31 · 하영 & 종권</p>
-  </header>
+
+  <h1>2025.12 대만 여행</h1>
+  <p>12.24 – 12.31 · 하영 &amp; 종권</p>
 
   <!-- DAY 1 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 1 · 12/24 (수)</h2>
+  <div class="card">
+    <h2>DAY 1 · 12/24 (수)</h2>
+    <p>✈️ 항공</p>
+    <p>인천 → 타이중 (TW669) 14:25 → 16:40</p>
 
-    <section class="card item flight">
-      <div class="card-header">✈️ 항공</div>
-      <div class="card-body">
-        <p>인천 → 타이중 (TW669)<br>14:25 → 16:40</p>
-      </div>
-    </section>
+    <div class="button-group">
+      <a href="https://www.twayair.com/app/reservation/eTicket?encPnrNumber=CdcdauTnbRSVmBXWJe5uFA==&encGuestId=ZCoboH/6lCw/cWf+oBYEsg==&regionCode=KR&langCode=ko-KR" target="_blank" class="btn">하영의 E-ticket</a>
+      <a href="https://www.twayair.com/app/reservation/eTicket?encPnrNumber=CdcdauTnbRSVmBXWJe5uFA==&encGuestId=dC/F13MJBOO1aOfvXrNyng==&regionCode=KR&langCode=ko-KR" target="_blank" class="btn">종권의 E-ticket</a>
+    </div>
+  </div>
 
-    <section class="card item train">
-      <div class="card-header">🚄 이동</div>
-      <div class="card-body">
-        <p>타이중 HSR → 가오슝 좌영<br>18:47 → 19:55</p>
-      </div>
-    </section>
+  <!-- 다른 DAY 카드 예시 -->
+  <div class="card">
+    <h2>DAY 2 · 12/25 (목)</h2>
+    <p>관광 일정 예시</p>
+  </div>
 
-    <section class="card item hotel">
-      <div class="card-header">🏨 숙소 체크인</div>
-      <div class="card-body">
-        <p>가오슝 · 로얄 파인 호텔<br>체크인: 12/24 15:00</p>
-      </div>
-    </section>
-  </section>
+  <div class="card">
+    <h2>DAY 3 · 12/26 (금)</h2>
+    <p>관광 일정 예시</p>
+  </div>
 
-  <!-- DAY 2 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 2 · 12/25 (목)</h2>
-    <section class="card item tour">
-      <div class="card-header">🗺️ 관광</div>
-      <div class="card-body">
-        <p>가오슝 시내 관광</p>
-      </div>
-    </section>
-  </section>
-
-  <!-- DAY 3 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 3 · 12/26 (금)</h2>
-    <section class="card item tour">
-      <div class="card-header">🗺️ 관광</div>
-      <div class="card-body">
-        <p>컨딩 당일치기 (예정)</p>
-      </div>
-    </section>
-  </section>
-
-  <!-- DAY 4 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 4 · 12/27 (토)</h2>
-    <section class="card item tour">
-      <div class="card-header">🗺️ 관광</div>
-      <div class="card-body">
-        <p>가오슝 자유 일정</p>
-      </div>
-    </section>
-  </section>
-
-  <!-- DAY 5 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 5 · 12/28 (일)</h2>
-
-    <section class="card item hotel">
-      <div class="card-header">🏨 숙소 체크아웃</div>
-      <div class="card-body">
-        <p>가오슝 · 로얄 파인 호텔<br>체크아웃: 12/28 11:00</p>
-      </div>
-    </section>
-
-    <section class="card item train">
-      <div class="card-header">🚄 이동</div>
-      <div class="card-body">
-        <p>가오슝 → 타이베이</p>
-      </div>
-    </section>
-
-    <section class="card item hotel">
-      <div class="card-header">🏨 숙소 체크인</div>
-      <div class="card-body">
-        <p>타이베이 · 호텔셔<br>체크인: 12/28 15:00</p>
-      </div>
-    </section>
-  </section>
-
-  <!-- DAY 6 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 6 · 12/29 (월)</h2>
-    <section class="card item train">
-      <div class="card-header">🚄 이동</div>
-      <div class="card-body">
-        <p>타이베이 → 타이중</p>
-      </div>
-    </section>
-  </section>
-
-  <!-- DAY 7 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 7 · 12/30 (화)</h2>
-    <section class="card item hotel">
-      <div class="card-header">🏨 숙소 체크아웃</div>
-      <div class="card-body">
-        <p>타이베이 · 호텔셔<br>체크아웃: 12/30 11:00</p>
-      </div>
-    </section>
-
-    <section class="card item hotel">
-      <div class="card-header">🏨 숙소 체크인</div>
-      <div class="card-body">
-        <p>타이중 · 템푸스 호텔<br>체크인: 12/30 16:00</p>
-      </div>
-    </section>
-  </section>
-
-  <!-- DAY 8 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 8 · 12/31 (수)</h2>
-    <section class="card item hotel">
-      <div class="card-header">🏨 숙소 체크아웃</div>
-      <div class="card-body">
-        <p>타이중 · 템푸스 호텔<br>체크아웃: 12/31 11:00</p>
-      </div>
-    </section>
-
-    <section class="card item flight">
-      <div class="card-header">✈️ 귀국</div>
-      <div class="card-body">
-        <p>타이중 → 인천 (TW670)<br>17:40 → 21:10</p>
-      </div>
-    </section>
-  </section>
-
-  <footer class="footer">
-    <p>✈️ Have a nice trip!</p>
-  </footer>
 </body>
 </html>
