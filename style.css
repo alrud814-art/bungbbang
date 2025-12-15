@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  background: #f4f6f8;
+  color: #222;
+}
+
+.header {
+  text-align: center;
+  padding: 28px 16px 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header p {
+  margin-top: 6px;
+  color: #666;
+}
+
+.day-wrap {
+  padding: 0 16px 24px;
+}
+
+.day-title {
+  font-size: 12px;
+  margin: 24px 0 12px;
+  padding-left: 5px; /* 왼쪽 패딩 5px */
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 14px;
+}
+
+.card-header {
+  padding: 5px 16px; /* 위, 아래 5px / 좌우 16px */
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.card-body {
+  padding: 0 16px 20px; /* 위 0 / 좌우 16px / 아래 20px */
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.card.flight .card-header {
+  background: #ffd24d;
+}
+
+.card.train .card-header {
+  background: #e6f0ff;
+}
+
+.card.hotel .card-header {
+  background: #eaf7ea;
+}
+
+.card.tour .card-header {
+  background: #e6d9ff; /* 관광 카드 보라색 */
+}
+
+.footer {
+  text-align: center;
+  padding: 24px 16px 40px;
+  color: #777;
+  font-size: 14px;
+}
