@@ -4,13 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2025.12 Taiwan Trip</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../../../Downloads/style.css" />
 </head>
 <body>
   <header class="header">
     <h1>🇹🇼 2025.12 대만 여행</h1>
     <p>12.24 – 12.31 · 하영 & 종권</p>
-  </header>
+    
+    <div id="weather-widget" class="weather-widget">
+      <span class="weather-icon">⏳</span>
+      <span class="weather-text">날씨 로딩중...</span>
+    </div>
+    </header>
 
   <!-- DAY 1 -->
   <section class="day-wrap">
@@ -165,9 +170,76 @@
       </div>
     </section>
   </section>
-
-$1
+    <footer class="footer">
     <p>✈️ Have a nice trip!</p>
   </footer>
+
+  <script>
+    // ... (날씨 관련 코드 등) ...
+  </script>
 </body>
+</html>
+<script>
+    async function fetchWeather(lat, lon, locationName) {
+      try {
+        // timezone=auto를 쓰면 해당 좌표의 시간대를 자동으로 잡아줍니다.
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`;
+        
+        const response = await fetch(url);
+        const data = await response.json();
+        const weather = data.current_weather;
+        
+        const temp = Math.round(weather.temperature);
+        const code = weather.weathercode;
+        
+        // 날씨 코드 -> 이모지로 변환
+        let icon = "☀️"; 
+        let text = "맑음";
+
+        if (code >= 1 && code <= 3) { icon = "⛅"; text = "구름 조금"; }
+        else if (code === 45 || code === 48) { icon = "🌫️"; text = "안개"; }
+        else if (code >= 51 && code <= 67) { icon = "🌧️"; text = "비"; }
+        else if (code >= 80 && code <= 82) { icon = "☔"; text = "소나기"; }
+        else if (code >= 95) { icon = "⚡"; text = "뇌우"; }
+        else if (code >= 71 && code <= 77) { icon = "❄️"; text = "눈"; }
+
+        // 화면에 표시
+        const widget = document.getElementById('weather-widget');
+        widget.innerHTML = `
+          <span class="weather-loc">${locationName}</span>
+          <span class="weather-icon">${icon}</span>
+          <span class="weather-temp">${temp}°C</span>
+        `;
+      } catch (error) {
+        console.error("날씨 로딩 실패:", error);
+        document.getElementById('weather-widget').innerText = "날씨 정보 없음";
+      }
+    }
+
+    function initWeather() {
+      // 1. 위치 정보 가져오기 시도
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            // 성공: 현재 위치 날씨 가져오기
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            fetchWeather(lat, lon, "내 위치"); // '내 위치' 대신 'Current' 등 원하시는 텍스트로 변경 가능
+          },
+          (error) => {
+            // 실패/거부: 타이베이(기본값) 날씨 가져오기
+            console.log("위치 정보 거부됨. 기본 지역(타이베이)으로 설정합니다.");
+            fetchWeather(25.0330, 121.5654, "타이베이");
+          }
+        );
+      } else {
+        // 브라우저가 위치 기능을 지원하지 않을 경우: 타이베이 날씨
+        fetchWeather(25.0330, 121.5654, "타이베이");
+      }
+    }
+
+    // 페이지 로드 시 실행
+    initWeather();
+  </script>
+  </body>
 </html>
