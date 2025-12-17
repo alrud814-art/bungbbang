@@ -1,198 +1,130 @@
-/* CSS (style.css) - 트렌디/미니멀 스타일 */
+/* style.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
-/* 요즘 가장 핫한 폰트인 Pretendard 느낌(없으면 Noto Sans로 대체됨) */
-
-* {
-  box-sizing: border-box;
+:root {
+  --bg-color: #f7f7f7;
+  --card-bg: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --point-color: #ff6b6b;
 }
 
 body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* [수정] 헤더를 꽉 채우기 위해 전체 여백 제거 */
   margin: 0;
-  font-family: "Pretendard", "Noto Sans KR", sans-serif;
-  background-color: #F7F7F7; /* 아주 연한 회색 배경 */
-  color: #333;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased; /* 폰트 부드럽게 */
+  padding: 0; 
+  line-height: 1.4;
 }
 
-/* --- Header Area --- */
 .header {
-  background: #fff;
+  background-color: var(--card-bg);
+  
+  /* [수정] 위쪽은 0, 아래쪽 양쪽만 30px 둥글게 */
+  border-radius: 0 0 30px 30px;
+  
+  padding: 30px 10px 20px 10px; /* 상단 패딩을 조금 늘려 시원하게 */
   text-align: center;
-  padding: 50px 20px 10px;
-  margin-bottom: 40px;
-  /* 그라데이션 대신 깔끔한 흰색에 큰 타이포그래피 */
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 그림자를 조금 더 부드럽게 */
 }
 
 .header h1 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 800;
-  color: #111;
+  font-size: 1.5rem;
+  margin: 0 0 6px 0;
   letter-spacing: -0.5px;
 }
 
 .header p {
-  margin-top: 0px;
-  color: #666;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: #ffffff;
+  font-size: 0.95rem;
+  color: var(--text-sub);
+  margin: 0 0 12px 0;
+}
+
+.weather-widget {
   display: inline-block;
+  background-color: #eee;
   padding: 6px 14px;
   border-radius: 20px;
+  font-size: 0.85rem;
+  color: #444;
 }
 
-/* --- Timeline Layout --- */
+/* [수정] body 패딩을 없앴으므로, 내용물에 좌우 여백 추가 */
 .day-wrap {
-  position: relative;
-  padding: 0 20px 40px;
-  max-width: 500px; /* 모바일 앱 뷰처럼 폭을 좁게 집중 */
-  margin: 0 auto;
-}
-
-/* 타임라인 선 (심플한 점선 or 얇은 실선) */
-.day-wrap::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  bottom: 0;
-  left: 36px;
-  width: 2px;
-  background: #E5E7EB; /* 아주 연한 선 */
-  z-index: 0;
+  margin-bottom: 25px;
+  padding: 0 15px; 
 }
 
 .day-title {
-  position: relative;
-  font-size: 16px;
-  font-weight: 800;
-  color: #111;
-  background: #F7F8FA; /* 배경색과 동일하게 */
-  padding: 5px 0;
-  margin: 0 0 20px 45px; /* 선 오른쪽으로 밀기 */
-  display: block;
-  z-index: 1;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #444;
+  margin: 0 0 10px 4px;
+  border-left: 4px solid var(--point-color);
+  padding-left: 10px;
 }
 
-/* --- Trendy Card Style --- */
 .card {
-  position: relative;
-  background: #fff;
-  border-radius: 24px; /* 크게 둥글게 */
-  padding: 24px;       /* 헤더/바디 구분 없이 통으로 패딩 */
-  margin-bottom: 24px;
-  margin-left: 24px;
-  /* 부드럽고 깊은 그림자 (핵심) */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.04), 0 4px 6px rgba(0,0,0,0.02);
-  border: 1px solid rgba(0,0,0,0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 10px;
+  overflow: hidden;
+  border: 1px solid #eaeaea;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
-
-/* 타임라인 점 (작고 귀엽게) */
-.card::before {
-  content: '';
-  position: absolute;
-  top: 28px; /* 카드 타이틀 높이에 맞춤 */
-  left: -29px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #fff;
-  border: 3px solid #ccc;
-  z-index: 2;
-  box-shadow: 0 0 0 3px #F7F8FA; /* 점 주변 여백 효과 */
-}
-
-/* --- Card Header & Content --- */
-/* 기존의 꽉 찬 배경색 헤더를 제거하고 텍스트 타이틀로 변경 */
 .card-header {
-  padding: 0;
-  margin-bottom: 12px;
-  background: none !important; /* 배경색 강제 제거 */
-  font-size: 17px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  background-color: #f9f9f9;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #eee;
 }
 
 .card-body {
-  padding: 0; /* 패딩 제거 (card에서 통합 관리) */
-  font-size: 15px;
-  color: #4B5563;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  padding: 12px 15px;
 }
 
 .card-body p {
-  margin: 0;
-  line-height: 1.6;
-  color: #555;
+  margin: 0 0 6px 0;
+  font-size: 0.95rem;
 }
 
-/* --- Color Themes (Text & Icon Colors) --- */
-/* 항공: 쨍한 블루 */
-.card.flight .card-header { color: #2563EB; }
-.card.flight::before { border-color: #2563EB; }
+.notice-box {
+    background-color: #f5f5f5;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: #555;
+}
 
-/* 이동: 에메랄드 그린 */
-.card.train .card-header { color: #059669; }
-.card.train::before { border-color: #059669; }
-
-/* 숙소: 웜 오렌지 */
-.card.hotel .card-header { color: #D97706; }
-.card.hotel::before { border-color: #D97706; }
-
-/* 관광: 바이올렛 */
-.card.tour .card-header { color: #7C3AED; }
-.card.tour::before { border-color: #7C3AED; }
-
-
-/* --- Modern Buttons --- */
-.card-body .btn-group {
+.btn-group {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .btn {
-  padding: 10px 16px;
-  border-radius: 14px; /* 버튼도 둥글게 */
-  font-size: 13px;
-  font-weight: 700;
+  flex: 1;
+  display: block;
+  text-align: center;
+  padding: 9px 0;
+  font-size: 0.85rem;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  transition: all 0.2s;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity 0.2s;
 }
+.btn:hover { opacity: 0.8; }
 
-/* 버튼 스타일: 연한 배경 + 진한 텍스트 (요즘 스타일) */
-.btn-flight { background-color: #EFF6FF; color: #1D4ED8; }
-.btn-flight:hover { background-color: #DBEAFE; }
+.btn-flight { background-color: #e3f2fd; color: #1565c0; }
+.btn-train  { background-color: #e8f5e9; color: #2e7d32; }
+.btn-hotel  { background-color: #fff3e0; color: #ef6c00; }
+.btn-tour   { background-color: #f3e5f5; color: #7b1fa2; }
 
-.btn-train { background-color: #ECFDF5; color: #047857; }
-.btn-train:hover { background-color: #D1FAE5; }
-
-.btn-hotel { background-color: #FFFBEB; color: #B45309; }
-.btn-hotel:hover { background-color: #FEF3C7; }
-
-.btn-tour { background-color: #F5F3FF; color: #6D28D9; }
-.btn-tour:hover { background-color: #EDE9FE; }
-
-/* --- Footer --- */
-.footer {
-  text-align: center !important; /* 강제 가운데 정렬 */
-  width: 100%;                   /* 가로폭 꽉 채우기 */
-  padding: 60px 20px;
-  color: #9CA3AF;
-  font-size: 14px;
-  background: transparent;       /* 배경 투명 (body색상 따라감) */
-}
+a { text-decoration: none; }
