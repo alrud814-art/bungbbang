@@ -1,130 +1,195 @@
-/* style.css */
+/* CSS (style.css) - 트렌디/미니멀 스타일 + 헤더 둥글게 수정됨 */
 
-:root {
-  --bg-color: #f7f7f7;
-  --card-bg: #ffffff;
-  --text-main: #333333;
-  --text-sub: #666666;
-  --point-color: #ff6b6b;
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  
-  /* [수정] 헤더를 꽉 채우기 위해 전체 여백 제거 */
   margin: 0;
-  padding: 0; 
-  line-height: 1.4;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  background-color: #F7F7F7; 
+  color: #333;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased; 
 }
 
+/* --- Header Area --- */
 .header {
-  background-color: var(--card-bg);
+  background: #fff;
+  text-align: center;
+  padding: 50px 20px 30px; /* 둥근 모서리와 어울리도록 하단 여백 살짝 늘림 */
+  margin-bottom: 40px;
   
-  /* [수정] 위쪽은 0, 아래쪽 양쪽만 30px 둥글게 */
+  /* [수정됨] 위쪽은 0, 아래쪽 양옆만 30px 둥글게 처리 */
   border-radius: 0 0 30px 30px;
   
-  padding: 30px 10px 20px 10px; /* 상단 패딩을 조금 늘려 시원하게 */
-  text-align: center;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* 그림자를 조금 더 부드럽게 */
+  /* 헤더가 배경 위로 살짝 떠있는 느낌을 주는 그림자 추가 (선택사항) */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
 }
 
 .header h1 {
-  font-size: 1.5rem;
-  margin: 0 0 6px 0;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111;
   letter-spacing: -0.5px;
 }
 
 .header p {
-  font-size: 0.95rem;
-  color: var(--text-sub);
-  margin: 0 0 12px 0;
-}
-
-.weather-widget {
+  margin-top: 10px; /* 제목과 간격 살짝 조정 */
+  color: #666;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #f7f7f7; /* 배경색과 맞춤 */
   display: inline-block;
-  background-color: #eee;
   padding: 6px 14px;
   border-radius: 20px;
-  font-size: 0.85rem;
-  color: #444;
 }
 
-/* [수정] body 패딩을 없앴으므로, 내용물에 좌우 여백 추가 */
+/* --- Timeline Layout --- */
 .day-wrap {
-  margin-bottom: 25px;
-  padding: 0 15px; 
+  position: relative;
+  padding: 0 20px 40px;
+  max-width: 500px; 
+  margin: 0 auto;
+}
+
+/* 타임라인 선 */
+.day-wrap::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 36px;
+  width: 2px;
+  background: #E5E7EB; 
+  z-index: 0;
 }
 
 .day-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #444;
-  margin: 0 0 10px 4px;
-  border-left: 4px solid var(--point-color);
-  padding-left: 10px;
+  position: relative;
+  font-size: 16px;
+  font-weight: 800;
+  color: #111;
+  background: #F7F7F7; /* body 배경색과 일치시킴 */
+  padding: 5px 0;
+  margin: 0 0 20px 45px; 
+  display: block;
+  z-index: 1;
 }
 
+/* --- Trendy Card Style --- */
 .card {
-  background-color: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  margin-bottom: 10px;
-  overflow: hidden;
-  border: 1px solid #eaeaea;
+  position: relative;
+  background: #fff;
+  border-radius: 24px; 
+  padding: 24px;        
+  margin-bottom: 24px;
+  margin-left: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04), 0 4px 6px rgba(0,0,0,0.02);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* 타임라인 점 */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 28px; 
+  left: -29px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #ccc;
+  z-index: 2;
+  box-shadow: 0 0 0 3px #F7F7F7; /* 점 주변 여백 효과 (배경색과 일치) */
+}
+
+/* --- Card Header & Content --- */
 .card-header {
-  background-color: #f9f9f9;
-  padding: 8px 15px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #555;
-  border-bottom: 1px solid #eee;
+  padding: 0;
+  margin-bottom: 12px;
+  background: none !important; 
+  font-size: 17px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .card-body {
-  padding: 12px 15px;
+  padding: 0; 
+  font-size: 15px;
+  color: #4B5563;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .card-body p {
-  margin: 0 0 6px 0;
-  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
 }
 
-.notice-box {
-    background-color: #f5f5f5;
-    padding: 8px;
-    border-radius: 6px;
-    margin-bottom: 8px;
-    font-size: 0.85rem;
-    color: #555;
-}
+/* --- Color Themes --- */
+.card.flight .card-header { color: #2563EB; }
+.card.flight::before { border-color: #2563EB; }
 
-.btn-group {
+.card.train .card-header { color: #059669; }
+.card.train::before { border-color: #059669; }
+
+.card.hotel .card-header { color: #D97706; }
+.card.hotel::before { border-color: #D97706; }
+
+.card.tour .card-header { color: #7C3AED; }
+.card.tour::before { border-color: #7C3AED; }
+
+
+/* --- Modern Buttons --- */
+.card-body .btn-group {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .btn {
-  flex: 1;
-  display: block;
-  text-align: center;
-  padding: 9px 0;
-  font-size: 0.85rem;
+  padding: 10px 16px;
+  border-radius: 14px; 
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s;
 }
-.btn:hover { opacity: 0.8; }
 
-.btn-flight { background-color: #e3f2fd; color: #1565c0; }
-.btn-train  { background-color: #e8f5e9; color: #2e7d32; }
-.btn-hotel  { background-color: #fff3e0; color: #ef6c00; }
-.btn-tour   { background-color: #f3e5f5; color: #7b1fa2; }
+.btn-flight { background-color: #EFF6FF; color: #1D4ED8; }
+.btn-flight:hover { background-color: #DBEAFE; }
 
-a { text-decoration: none; }
+.btn-train { background-color: #ECFDF5; color: #047857; }
+.btn-train:hover { background-color: #D1FAE5; }
+
+.btn-hotel { background-color: #FFFBEB; color: #B45309; }
+.btn-hotel:hover { background-color: #FEF3C7; }
+
+.btn-tour { background-color: #F5F3FF; color: #6D28D9; }
+.btn-tour:hover { background-color: #EDE9FE; }
+
+/* --- Footer --- */
+.footer {
+  text-align: center !important; 
+  width: 100%;                   
+  padding: 60px 20px;
+  color: #9CA3AF;
+  font-size: 14px;
+  background: transparent;       
+}
