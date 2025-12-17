@@ -8,16 +8,15 @@
 </head>
 <body>
   <header class="header">
-    <h1>🇹🇼 즐거운 대만 여행</h1>
-    <p>12.24 – 12.31 · 하영 💕 종권</p>
+    <h1>🇹🇼 2025.12 대만 여행</h1>
+    <p>12.24 – 12.31 · 하영 & 종권</p>
     
     <div id="weather-widget" class="weather-widget">
       <span class="weather-icon">⏳</span>
       <span class="weather-text">날씨 로딩중...</span>
     </div>
-    </header>
+  </header>
 
-  <!-- DAY 1 -->
   <section class="day-wrap">
     <h2 class="day-title">DAY 1 · 12/24 (수)</h2>
 
@@ -42,10 +41,24 @@
       </div>
     </section>
 
-    <section class="card train">
+   <section class="card train">
       <div class="card-header">🚄 이동</div>
       <div class="card-body">
         <p>타이중 HSR → 가오슝 좌영<br>18:47 → 19:55</p>
+        
+        <div style="font-size: 13px; color: #666; margin-top: 4px; line-height: 1.3;">
+          <p style="margin: 0; color: #d32f2f; font-weight: 600;">
+            * 예약번호+여권 지참 후 매표소에서 실물티켓 수령필수
+          </p>
+          <p style="margin: 4px 0 0 0;">
+            * 예약번호 : 02197465<br>
+            * 하영 리딤 코드 / 여권번호 : WZNE2FXP / M910R7581<br>
+            * 종권 리딤 코드 / 여권번호 : ETAPX65F / M46033350
+          </p>
+        </div>
+        <div class="btn-group">
+          <a class="btn btn-train" target="_blank" href="https://pass.thsrc.com.tw/oatsb2c/home.do">THSR 예매내역</a>
+        </div>
       </div>
     </section>
 
@@ -60,11 +73,8 @@
       </div>
     </section>
 
-    
+  </section>
 
-    </section>
-
-  <!-- DAY 2 -->
   <section class="day-wrap">
     <h2 class="day-title">DAY 2 · 12/25 (목)</h2>
     <section class="card tour">
@@ -75,7 +85,6 @@
     </section>
   </section>
 
-  <!-- DAY 3 -->
   <section class="day-wrap">
     <h2 class="day-title">DAY 3 · 12/26 (금)</h2>
     <section class="card tour">
@@ -86,7 +95,6 @@
     </section>
   </section>
 
-  <!-- DAY 4 -->
   <section class="day-wrap">
     <h2 class="day-title">DAY 4 · 12/27 (토)</h2>
     <section class="card tour">
@@ -97,7 +105,6 @@
     </section>
   </section>
 
-  <!-- DAY 5 가오슝 체크아웃 후 타이베이 체크인 -->
   <section class="day-wrap">
     <h2 class="day-title">DAY 5 · 12/28 (일)</h2>
     <section class="card hotel">
@@ -119,7 +126,6 @@
     </section>
   </section>
 
-      <!-- DAY 6 -->
   <section class="day-wrap">
     <h2 class="day-title">DAY 6 · 12/29 (월)</h2>
     <section class="card tour">
@@ -130,7 +136,6 @@
     </section>
   </section>
 
-  <!-- DAY 7 타이중 체크인 -->
   <section class="day-wrap">
     <h2 class="day-title">DAY 7 · 12/30 (화)</h2>
     <section class="card hotel">
@@ -138,108 +143,3 @@
       <div class="card-body">
         <p>타이베이 · 호텔셔<br>체크아웃: 12/30 11:00</p>
       </div>
-    </section>
-
-    <section class="card hotel">
-      <div class="card-header">🏨 숙소 체크인</div>
-      <div class="card-body">
-        <p>타이중 · 템푸스 호텔<br>체크인: 12/30 16:00</p>
-        <div class="btn-group">
-          <a class="btn btn-hotel" target="_blank" href="https://maps.app.goo.gl/waqLxYgJTJysyp2F9?g_st=akt">위치</a>
-          <a class="btn btn-hotel" target="_blank" href="https://platform.yeogi.com/profile/reservation/overseas/251214220068A0ES1">자세히보기</a>
-        </div>
-      </div>
-    </section>
-  </section>
-  </section>
-
-    <!-- DAY 8 귀국 -->
-  <section class="day-wrap">
-    <h2 class="day-title">DAY 8 · 12/31 (수)</h2>
-    <section class="card hotel">
-      <div class="card-header">🏨 숙소 체크아웃</div>
-      <div class="card-body">
-        <p>타이중 · 템푸스 호텔<br>체크아웃: 12/31 11:00</p>
-      </div>
-    </section>
-
-    <section class="card flight">
-      <div class="card-header">✈️ 귀국</div>
-      <div class="card-body">
-        <p>타이중 → 인천<br>TW670 · 17:40 → 21:20</p>
-      </div>
-    </section>
-  </section>
-    <footer class="footer">
-    <p>✈️ Have a nice trip!</p>
-  </footer>
-
-  <script>
-    // ... (날씨 관련 코드 등) ...
-  </script>
-</body>
-</html>
-<script>
-    async function fetchWeather(lat, lon, locationName) {
-      try {
-        // timezone=auto를 쓰면 해당 좌표의 시간대를 자동으로 잡아줍니다.
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&timezone=auto`;
-        
-        const response = await fetch(url);
-        const data = await response.json();
-        const weather = data.current_weather;
-        
-        const temp = Math.round(weather.temperature);
-        const code = weather.weathercode;
-        
-        // 날씨 코드 -> 이모지로 변환
-        let icon = "☀️"; 
-        let text = "맑음";
-
-        if (code >= 1 && code <= 3) { icon = "⛅"; text = "구름 조금"; }
-        else if (code === 45 || code === 48) { icon = "🌫️"; text = "안개"; }
-        else if (code >= 51 && code <= 67) { icon = "🌧️"; text = "비"; }
-        else if (code >= 80 && code <= 82) { icon = "☔"; text = "소나기"; }
-        else if (code >= 95) { icon = "⚡"; text = "뇌우"; }
-        else if (code >= 71 && code <= 77) { icon = "❄️"; text = "눈"; }
-
-        // 화면에 표시
-        const widget = document.getElementById('weather-widget');
-        widget.innerHTML = `
-          <span class="weather-loc">${locationName}</span>
-          <span class="weather-icon">${icon}</span>
-          <span class="weather-temp">${temp}°C</span>
-        `;
-      } catch (error) {
-        console.error("날씨 로딩 실패:", error);
-        document.getElementById('weather-widget').innerText = "날씨 정보 없음";
-      }
-    }
-
-    function initWeather() {
-      // 1. 위치 정보 가져오기 시도
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            // 성공: 현재 위치 날씨 가져오기
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            fetchWeather(lat, lon, "내 위치"); // '내 위치' 대신 'Current' 등 원하시는 텍스트로 변경 가능
-          },
-          (error) => {
-            // 실패/거부: 타이베이(기본값) 날씨 가져오기
-            console.log("위치 정보 거부됨. 기본 지역(타이베이)으로 설정합니다.");
-            fetchWeather(25.0330, 121.5654, "타이베이");
-          }
-        );
-      } else {
-        // 브라우저가 위치 기능을 지원하지 않을 경우: 타이베이 날씨
-        fetchWeather(25.0330, 121.5654, "타이베이");
-      }
-    }
-
-    // 페이지 로드 시 실행
-    initWeather();
-  </script>
-  </body>
-</html>
