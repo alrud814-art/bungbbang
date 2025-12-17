@@ -143,3 +143,49 @@
       <div class="card-body">
         <p>타이베이 · 호텔셔<br>체크아웃: 12/30 11:00</p>
       </div>
+    </section>
+  </section>
+
+<script>
+  const weatherIcon = document.querySelector('.weather-icon');
+  const weatherText = document.querySelector('.weather-text');
+
+  function onGeoOk(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    // Open-Meteo API 호출 (무료, 가입 불필요)
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const weather = data.current_weather;
+        const temp = Math.round(weather.temperature);
+        const code = weather.weathercode; 
+
+        // 날씨 코드 아이콘 매핑
+        let icon = '🌤️';
+        if (code === 0) icon = '☀️'; // 맑음
+        else if (code >= 1 && code <= 3) icon = '☁️'; // 흐림
+        else if (code >= 45 && code <= 48) icon = '🌫️'; // 안개
+        else if (code >= 51 && code <= 67) icon = '☔'; // 비
+        else if (code >= 71 && code <= 77) icon = '❄️'; // 눈
+        else if (code >= 80 && code <= 82) icon = '☔'; // 소나기
+        else if (code >= 95) icon = '⚡'; // 번개
+
+        weatherIcon.innerText = icon;
+        weatherText.innerText = `${temp}°C`;
+      });
+  }
+
+  function onGeoError() {
+    weatherIcon.innerText = '🚫';
+    weatherText.innerText = '위치권한 필요';
+  }
+
+  // 위치 정보 요청
+  navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+</script>
+
+</body>
+</html>
