@@ -38,32 +38,35 @@
     <div class="card-body">
       <p>타이중 공항 → 타이중 HSR역 (156 공항버스)</p>
       <div class="caption">
-        <p>⏱ 약 50~70분</p>
-        <p>💰 약 45~60 TWD (약 2,000~2,700원)</p>
+        <p>* ⏱ 약 50~70분</p>
+        <p>* 💰 약 45~60 TWD (약 2,000~2,700원)</p>
       </div>
       <div class="btn-group">
-        <a class="btn btn-train" target="_blank" href="https://www.google.co.kr/maps/dir/%ED%83%80%EC%9D%B4%EC%A4%91+%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD/HSR+Taichung+Station">경로 보기</a>
+        <a class="btn btn-train" target="_blank"
+           href="https://www.google.co.kr/maps/dir/%ED%83%80%EC%9D%B4%EC%A4%91+%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD/HSR+Taichung+Station">
+          경로 보기
+        </a>
       </div>
     </div>
   </section>
 
   <section class="card train">
-  <div class="card-header">🚄 이동 (HSR)</div>
-  <div class="card-body">
-    <p>타이중 HSR → 가오슝 좌영<br>18:48 → 19:45</p>
-    <div class="caption">
-      <p>* 예약번호+여권 지참 후 매표소에서 실물티켓 수령 필수</p>
-      <p>
-        * 예약번호 : 02538363<br>
-        * 하영(Car3/10D) : 8LUH1RD3 / M910R7581<br>
-        * 종권(Car3/10E) : E2TPYAUF / M46033350
-      </p>
+    <div class="card-header">🚄 이동 (HSR)</div>
+    <div class="card-body">
+      <p>타이중 HSR → 가오슝 좌영<br>18:48 → 19:45</p>
+      <div class="caption">
+        <p>* 예약번호+여권 지참 후 매표소에서 실물티켓 수령 필수</p>
+        <p>* 예약번호 : 02538363</p>
+        <p>* 하영(Car3/10D) : 8LUH1RD3 / M910R7581</p>
+        <p>* 종권(Car3/10E) : E2TPYAUF / M46033350</p>
+      </div>
+      <div class="btn-group">
+        <a class="btn btn-train" target="_blank" href="https://pass.thsrc.com.tw/oatsb2c/home.do">
+          THSR 예매내역
+        </a>
+      </div>
     </div>
-    <div class="btn-group">
-      <a class="btn btn-train" target="_blank" href="https://pass.thsrc.com.tw/oatsb2c/home.do">THSR 예매내역</a>
-    </div>
-  </div>
-</section>
+  </section>
 
   <section class="card hotel">
     <div class="card-header">🏨 숙소 체크인</div>
@@ -120,11 +123,14 @@
     <div class="card-body">
       <p>호텔 → 가오슝 좌영 HSR역</p>
       <div class="caption">
-        <p>⏱ 약 20~30분</p>
-        <p>💰 약 250~350 TWD (약 11,000~15,000원)</p>
+        <p>* ⏱ 약 20~30분</p>
+        <p>* 💰 약 250~350 TWD (약 11,000~15,000원)</p>
       </div>
       <div class="btn-group">
-        <a class="btn btn-train" target="_blank" href="https://www.google.com/maps/dir/?api=1&travelmode=driving">경로 보기</a>
+        <a class="btn btn-train" target="_blank"
+           href="https://www.google.com/maps/dir/?api=1&travelmode=driving">
+          경로 보기
+        </a>
       </div>
     </div>
   </section>
@@ -134,8 +140,8 @@
     <div class="card-body">
       <p>가오슝 좌영 → 타이베이 HSR역</p>
       <div class="caption">
-        <p>⏱ 약 1시간 40분</p>
-        <p>💰 약 1,490 TWD (약 64,000원)</p>
+        <p>* ⏱ 약 1시간 40분</p>
+        <p>* 💰 약 1,490 TWD (약 64,000원)</p>
       </div>
     </div>
   </section>
@@ -145,11 +151,14 @@
     <div class="card-body">
       <p>타이베이 HSR역 → 호텔셔</p>
       <div class="caption">
-        <p>⏱ 약 10~15분</p>
-        <p>💰 약 150~250 TWD (약 6,500~11,000원)</p>
+        <p>* ⏱ 약 10~15분</p>
+        <p>* 💰 약 150~250 TWD (약 6,500~11,000원)</p>
       </div>
       <div class="btn-group">
-        <a class="btn btn-train" target="_blank" href="https://www.google.com/maps/dir/?api=1&travelmode=driving">경로 보기</a>
+        <a class="btn btn-train" target="_blank"
+           href="https://www.google.com/maps/dir/?api=1&travelmode=driving">
+          경로 보기
+        </a>
       </div>
     </div>
   </section>
@@ -213,22 +222,36 @@
 const weatherIcon = document.querySelector('.weather-icon');
 const weatherText = document.querySelector('.weather-text');
 
+function getWeatherIcon(code) {
+  if (code === 0) return '☀️';              // 맑음
+  if (code <= 2) return '🌤️';              // 대체로 맑음
+  if (code <= 3) return '☁️';               // 흐림
+  if (code >= 45 && code <= 48) return '🌫️'; // 안개
+  if (code >= 51 && code <= 67) return '🌧️'; // 비
+  if (code >= 71 && code <= 77) return '❄️'; // 눈
+  if (code >= 80 && code <= 82) return '🌦️'; // 소나기
+  if (code >= 95) return '⛈️';              // 천둥번개
+  return '🌈';
+}
+
 function onGeoOk(position) {
   const { latitude, longitude } = position.coords;
+
   fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`)
     .then(res => res.json())
     .then(data => {
       const temp = Math.round(data.current_weather.temperature);
-      weatherIcon.textContent = '🌤️';
+      const code = data.current_weather.weathercode;
+
+      weatherIcon.textContent = getWeatherIcon(code);
       weatherText.textContent = `${temp}°C`;
     });
 }
+
 function onGeoError() {
   weatherIcon.textContent = '🚫';
   weatherText.textContent = '위치권한 필요';
 }
+
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 </script>
-
-</body>
-</html>
