@@ -195,7 +195,7 @@ body {
 }
 /* 이동 카드 / HSR 카드 공통 캡션 스타일 */
 .caption {
-  font-size: 13px;
+  font-size: 14px;
   color: #666;
   margin-top: 4px;
   line-height: 1.1; /* 0.7보다는 조금 높이되 촘촘하게 */
