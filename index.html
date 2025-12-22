@@ -117,7 +117,7 @@
       <p>미려도역 → 쭤잉역</p>
       <div class="caption">
         <p>* ⏱ 약 15~20분</p>
-        <p>* 💰 약 30~35 TWD (약 1,300~1,500원)</p>
+        <p>* 💰 약 60~70 TWD (약 2,600~3,000원) [2인 기준]</p>
       </div>
       <div class="btn-group">
         <a class="btn btn-train" target="_blank"
@@ -134,7 +134,7 @@
       <p>쭤잉역 → 컨딩 (컨딩 익스프레스)</p>
       <div class="caption">
         <p>* ⏱ 약 2시간~2시간 30분</p>
-        <p>* 💰 약 350~400 TWD (약 15,000~17,000원)</p>
+        <p>* 💰 약 700~800 TWD (약 30,000~34,000원) [2인 기준]</p>
       </div>
       <div class="btn-group">
         <a class="btn btn-train" target="_blank"
@@ -151,11 +151,11 @@
       <p>컨딩 → 쭤잉역 (컨딩 익스프레스)</p>
       <div class="caption">
         <p>* ⏱ 약 2시간~2시간 30분</p>
-        <p>* 💰 약 350~400 TWD (약 15,000~17,000원)</p>
+        <p>* 💰 약 700~800 TWD (약 30,000~34,000원) [2인 기준]</p>
       </div>
       <div class="btn-group">
         <a class="btn btn-train" target="_blank"
-           href="https://www.google.com/maps/dir/?api=1&travelmode=driving1">
+           href="https://maps.app.goo.gl/8XxMLHy3MoD3Aisy8">
           경로 보기
         </a>
       </div>
@@ -168,11 +168,11 @@
       <p>쭤잉역 → 미려도역</p>
       <div class="caption">
         <p>* ⏱ 약 15~20분</p>
-        <p>* 💰 약 30~35 TWD (약 1,300~1,500원)</p>
+        <p>* 💰 약 60~70 TWD (약 2,600~3,000원) [2인 기준]</p>
       </div>
       <div class="btn-group">
         <a class="btn btn-train" target="_blank"
-           href="https://www.google.com/maps/dir/?api=1&travelmode=driving2">
+           href="https://maps.app.goo.gl/zTPEye42F8VCg79z7">
           경로 보기
         </a>
       </div>
@@ -239,7 +239,7 @@
       <p>타이중 HSR역 → 칼튼 호텔</p>
       <div class="caption">
         <p>* ⏱ 약 20~30분</p>
-        <p>* 💰 (예상) 약 250~350 TWD</p>
+        <p>* 💰 (예상) 약 250~350 TWD (약 11,000~15,000원)</p>
       </div>
       <div class="btn-group">
         <a class="btn btn-train" target="_blank" href="https://www.google.com/maps/dir/HSR+Taichung+Station+Visitor+Information+Center,+Zhanqu+2nd+Road,+%EC%9A%B0%EB%A5%B4+%EA%B5%AC+%ED%83%80%EC%9D%B4%EC%A4%91+%EB%8C%80%EB%A7%8C/403+%EB%8C%80%EB%A7%8C+Taichung+City,+West+District,+Zhongming+S+Rd,+61%E8%99%9F%E5%8D%A1%E7%88%BE%E7%99%BB%E9%A3%AF%E5%BA%97%E5%8F%B0%E4%B8%AD%E9%A4%A8+The+Carlton+Taichung/@24.1315848,120.6155896,14z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x34693ea1c71c133d:0xd31960d6077a71b9!2m2!1d120.615692!2d24.1117072!1m5!1m1!1s0x34693d9ba591c4f7:0xc42de27adde55ad2!2m2!1d120.6583973!2d24.1545487!3e0?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D">
@@ -316,3 +316,21 @@ function onGeoOk(position) {
 
   fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`)
     .then(res => res.json())
+    .then(data => {
+      const temp = Math.round(data.current_weather.temperature);
+      const code = data.current_weather.weathercode;
+
+      weatherIcon.textContent = getWeatherIcon(code);
+      weatherText.textContent = `${temp}°C`;
+    });
+}
+
+function onGeoError() {
+  weatherIcon.textContent = '🚫';
+  weatherText.textContent = '위치권한 필요';
+}
+
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+</script>
+</body>
+</html>
